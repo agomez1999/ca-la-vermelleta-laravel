@@ -21,5 +21,5 @@ Route::prefix('reservation')->group(function () {
 Route::prefix('user')->group(function () {
     Route::middleware('auth:sanctum')->get('/verify-token', [UserController::class, 'verifyToken']);
     Route::post('/register', [UserController::class, 'store']);
-    Route::post('/login', [UserController::class, 'login']);
+    Route::post('/login', [UserController::class, 'login'])->name('login');
 });
