@@ -10,8 +10,7 @@ class Pricing extends Model
     use HasFactory;
 
     protected $fillable = [
-        'start_date',
-        'end_date',
+        'date',
         'price_per_night',
         'season',
     ];
