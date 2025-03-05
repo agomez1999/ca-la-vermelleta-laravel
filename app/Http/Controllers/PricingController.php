@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Availability;
 use App\Models\Pricing;
 
 use Illuminate\Http\Request;
@@ -14,7 +15,9 @@ class PricingController extends Controller
   public function index()
   {
     $pricings = Pricing::all();
-    return response()->json(["pricings" => $pricings]);
+    $not_available = Availability::where('is_available', '0')->get();
+
+    return response()->json(["pricings" => $pricings, "not_available" => $not_available]);
   }
 
   public function store(Request $request)
